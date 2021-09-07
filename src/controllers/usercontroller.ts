@@ -8,13 +8,9 @@ export default class UserController extends BaseController {
     }
 
     post = async (req: Request, res: Response) => {
-        //console.log(this.modelName);
-        //console.log(req.body);
+        console.log(req.body);
         try {
-            const user = await this.model.create({
-                "email": "user1@domain.com",
-                "password": "123456"
-            });
+            const user = await this.model.create(req.body);
             res.status(200).json(user);
         }
         catch (error) {
@@ -22,4 +18,23 @@ export default class UserController extends BaseController {
         }
 
     }
+
+    put= async (req: Request, res: Response)=>{
+
+
+        const user = await this.model.findOneAndUpdate({
+            _id: req.body.Uid
+        }, {'email': req.body.email,
+            'password':req.body.password}, {
+            upsert: false
+        })
+       // console.log(post);
+        if (user === null)
+          res.status(400).json("Post not found");
+        else
+          res.status(200).json(user);
+      }
+
+
+
 }

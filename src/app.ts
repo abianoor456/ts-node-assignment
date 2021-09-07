@@ -15,9 +15,9 @@ class App {
   constructor( port) {
     this.app = express();
     this.port = port;
+    this.app.use(express.json());
     this.app.use("/api", router);
-    this.app.use(express.json())
-
+    
     // this.postsmth();
     this.initializeMiddlewares();
     this.connectToTheDatabase();
