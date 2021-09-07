@@ -1,0 +1,414 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "Demo api documentation",
+      "version": "1.0.0",
+      "title": "Demo"
+    },
+    "basePath": "/",
+    "host": "",
+    "tags": [
+      {
+        "name": "User",
+        "description": "Everything about your Users"
+      },
+      {
+        "title":"Post title",
+        "description": "The body of the post",
+        "user": "The user who made the post"
+  
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      
+      "/api/user": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Gets all users",
+          "description": "Gets All users",
+          "operationId": "gets-all-users",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+          
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid input"
+            }
+          },
+          "security": [
+            
+          ]
+        },
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Add User",
+          "description": "Add User",
+          "operationId": "add-user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "User",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            }
+          },
+          "security": [
+          ]
+        },
+        "put": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Update User",
+          "description": "Update User",
+          "operationId": "update-user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "User",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/userUpdate"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            }
+          },
+          "security": [
+            
+          ]
+        },
+        "delete": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Delete User",
+          "description": "Delete User",
+          "operationId": "delete-user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Post",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/DeleteUser"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            }
+          },
+          "security": [
+            
+          ]
+        }
+      },
+      "/api/post": {
+        "get": {
+          "tags": [
+            "Post"
+          ],
+          "summary": "Get Posts",
+          "description": "Get Posts",
+          "operationId": "get-posts",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            }
+          },
+          "security": [   
+          ]
+        },
+        "post": {
+          "tags": [
+            "Post"
+          ],
+          "summary": "Add Post",
+          "description": "Add Post",
+          "operationId": "add-post",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Post",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            },
+            "400":{
+              "description": "failure"
+            }
+          },
+          "security": [
+            
+          ]
+        }
+        ,
+        "put": {
+          "tags": [
+            "Post"
+          ],
+          "summary": "Update Post",
+          "description": "Update Post",
+          "operationId": "update-post",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Post",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/UpdatePost"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            }
+          },
+          "security": [
+            
+          ]
+        },
+        "delete": {
+          "tags": [
+            "Post"
+          ],
+          "summary": "Delete Post",
+          "description": "Delete Post",
+          "operationId": "delete-post",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Post",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/DeletePost"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            }
+          },
+          "security": [
+            
+          ]
+        }
+      }
+    },
+    "definitions": {
+      "user": {
+        "type": "object",
+        "required": [
+          "password",
+          "email"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "user@domain.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          }
+        },
+        "xml": {
+          "name": "User"
+        }
+      },
+      "userUpdate": {
+        "type": "object",
+        "required": [
+          "Uid",
+          "password",
+          "email"
+        ],
+        "properties": {
+          "Uid":{
+            "type":"string",
+            "example":"6133ed415b25ac1bac681c75"
+          },
+          "email": {
+            "type": "string",
+            "example": "user@domain.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "updated"
+          }
+        },
+        "xml": {
+          "name": "User"
+        }
+      },
+      
+      "DeleteUser": {
+        "type": "object",
+        "required": [
+         "id"
+        ],
+        "properties": {
+          "id":{
+            "type":"string",
+            "example":"6133ed415b25ac1bac681c75"
+          }
+        },
+        "xml": {
+          "name": "User"
+        }
+      },
+      "Post": {
+        "type": "object",
+        "required": [
+          "title",
+          "description",
+          "user"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Post 1"
+          },
+          "description": {
+            "type": "string",
+            "example": "hello this is post 1"
+          }
+          
+        },
+        "xml": {
+          "name": "Post"
+        }
+      },
+      
+      "UpdatePost": {
+        "type": "object",
+        "required": [
+          "title",
+          "description",
+          "Uid",
+          "Pid"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Post 1 Updated"
+          },
+          "description": {
+            "type": "string",
+            "example": "this is updated post"
+          },
+          "Pid": {
+            "type": "string",
+            "example": "61341356ed281f2772ae0820"
+          },
+          "Uid": {
+            "type": "string",
+            "example": "61341057ff32c623d5c47140"
+          }
+        },
+        "xml": {
+          "name": "Post"
+        }
+      },
+      "DeletePost": {
+        "type": "object",
+        "required": [
+          "title",
+          "description",
+          "user"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "61292fdb877244a0f4aa46fa"
+          }
+        },
+        "xml": {
+          "name": "DeletePost"
+        }
+      }
+    }
+  }

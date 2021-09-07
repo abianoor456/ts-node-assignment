@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 import * as mongoDB from "mongodb";
 const mongoose = require('mongoose');
 import router from './routes/index'
+const swaggerUi= require('swagger-ui-express');
+const swaggerDocument = require('./docs/swagger.json');
 
 
 dotenv.config();
@@ -16,9 +18,9 @@ class App {
     this.app = express();
     this.port = port;
     this.app.use(express.json());
-    this.app.use("/api", router);
+    //this.app.use("/api", router);
+    this.app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     
-    // this.postsmth();
     this.initializeMiddlewares();
     this.connectToTheDatabase();
   }
