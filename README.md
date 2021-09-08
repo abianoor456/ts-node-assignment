@@ -21,6 +21,10 @@ This project is a a demo workoing directroy for practicing Typescript with node,
 # Running on local
 To start run this:
 `npm run dev`
+# Database Design
+1. This is relational database design
+2. Models are defined in src/models
 
+![](SCHEMA.png)
 
 
